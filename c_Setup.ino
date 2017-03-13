@@ -10,11 +10,15 @@ pinMode(1,INPUT); // Encoder - B
 pinMode(1,INPUT_PULLUP);
 pinMode(5,INPUT); // Encoder - Pulsante.
 pinMode(5,INPUT_PULLUP);
+pinMode(6,OUTPUT); // Capsula piezo
+pinMode(7,OUTPUT); // Uscita
+pinMode(A0,OUTPUT); // Retroilluminazione (0:accesa).
+calc();
 
-pinMode(3,OUTPUT); // Uscita
-pinMode(7,OUTPUT); // Capsula piezo
-
-T=60000000/cpm; // in uS.
+lcd.print("   PULSERINO    ");
+delay(1000);
+lcd.clear();
+mask();
 } // END setup
 
 

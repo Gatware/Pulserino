@@ -34,8 +34,18 @@
 #include <EEPROM.h>
 LiquidCrystal lcd(8,9,10,11,12,13); // RS,EN,D4,D5,D6,D7
 void(* Riavvia)(void) = 0; // Riavvia() riavvia il Contatore Geiger (usato per uscire dalle impostazioni di setup dopo ...secondi).
-
+byte bat=0;
+int Vb=0;
+unsigned long XVref=0.940*1072; // 0,94 * Vref in mV. Inserire qui il valore letto con il multimetro sul pin 21 dell'ATmega328P
+                                // o il valore del riferimento di tensione esterno montato.
 unsigned long t1=0; 
+int E=0;
+byte P=0;
+byte Po=1;
 byte inc=1; // Incremento.
-unsigned long cpm=1; // cpm impostati.
-unsigned long T=1000000; // Periodo in uS.
+unsigned long cpm=60; // cpm impostati.
+unsigned long T=1; // Periodo in uS.
+unsigned long cont=0;
+byte S=0;
+byte So=0;
+byte X=0;

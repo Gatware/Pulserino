@@ -1,4 +1,4 @@
-void Bip()   {tone(7,1000,15);}
+void Bip()   {tone(6,1000,15);}
 
 void encoder()
 {
@@ -13,12 +13,31 @@ if (S!=So && S==0) X=0;
 if (X==0)
   {
   if (So==1&&S==2)
-    {E=1; X=1; if(!mute)Bip();}
+    {E=1; X=1; Bip();}
   if (So==3&&S==2)
-    {E=-1; X=1;if(!mute)Bip();}
+    {E=-1; X=1; Bip();}
   if (S==0)
     {E=0; X=0;}
   So=S;  
   }
+}
+
+void mask()
+{
+lcd.setCursor(0,0); lcd.print("          Vel.  ");
+lcd.setCursor(0,1); lcd.print("+/-1"); visualcpm();
+lcd.setCursor(13,1); lcd.print("cpm");
+}
+
+void visualcpm()
+{
+lcd.setCursor(6,1);
+if(cpm<100) lcd.print("     ");
+else if(cpm<1000) lcd.print("    ");
+else if(cpm<10000) lcd.print("   ");
+else if(cpm<100000) lcd.print("  ");
+else if(cpm<1000000) lcd.print(" ");
+
+lcd.print(cpm);
 }
 
