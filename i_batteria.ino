@@ -28,4 +28,3 @@ switch (bat)
   }
 lcd.setCursor(15,1); lcd.write(byte(0));
 }
-
